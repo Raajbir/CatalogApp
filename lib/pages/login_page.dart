@@ -29,99 +29,96 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Material(
         color: Colors.white,
-        child: Form(
-          key: _formkey,
-          child: Column(
-            children: <Widget>[
-              Image.asset(
-                "assets/images/hey.png",
-                fit: BoxFit.cover,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Welcome $name!',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formkey,
+            child: Column(
+              children: <Widget>[
+                Image.asset(
+                  "assets/images/hey.png",
+                  fit: BoxFit.cover,
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 16.0,
-                  horizontal: 32.0,
+                SizedBox(
+                  height: 20,
                 ),
-                child: Column(children: <Widget>[
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Username cannot be Empty";
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      hintText: "Enter Username",
-                      labelText: "Username",
+                Text(
+                  'Welcome $name!',
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 16.0,
+                    horizontal: 32.0,
+                  ),
+                  child: Column(children: <Widget>[
+                    TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Username cannot be Empty";
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Enter Username",
+                        labelText: "Username",
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          name = value;
+                        });
+                      },
                     ),
-                    onChanged: (value) {
-                      setState(() {
-                        name = value;
-                      });
-                    },
-                  ),
-                  TextFormField(
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Password cannot be Empty";
-                      } else if (value.length < 6) {
-                        return 'Password Length should be atleast 6';
-                      }
-                      return null;
-                    },
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: "Enter Password",
-                      labelText: "Password",
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Material(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(changeButton ? 20 : 8),
-                    child: InkWell(
-                      splashColor: Color.fromARGB(255, 115, 76, 182),
-                      onTap: () => moveToHome(context),
-                      child: AnimatedContainer(
-                        width: changeButton ? 50 : 150,
-                        height: 50,
-                        duration: Duration(seconds: 1),
-                        alignment: Alignment.center,
-                        // decoration: BoxDecoration(
-                        //   color: Colors.deepPurple,
-                        //   // shape:
-                        //   //     changeButton ? BoxShape.circle : BoxShape.rectangle,
-
-                        // ),
-                        child: changeButton
-                            ? Icon(Icons.done, color: Colors.white)
-                            : Text('Login',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                )),
+                    TextFormField(
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Password cannot be Empty";
+                        } else if (value.length < 6) {
+                          return 'Password Length should be atleast 6';
+                        }
+                        return null;
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: "Enter Password",
+                        labelText: "Password",
                       ),
                     ),
-                  )
-                ]),
-              )
-            ],
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Material(
+                      color: Colors.deepPurple,
+                      borderRadius:
+                          BorderRadius.circular(changeButton ? 20 : 8),
+                      child: InkWell(
+                        splashColor: Color.fromARGB(255, 115, 76, 182),
+                        onTap: () => moveToHome(context),
+                        child: AnimatedContainer(
+                          width: changeButton ? 50 : 150,
+                          height: 50,
+                          duration: Duration(seconds: 1),
+                          alignment: Alignment.center,
+                          child: changeButton
+                              ? Icon(Icons.done, color: Colors.white)
+                              : Text('Login',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  )),
+                        ),
+                      ),
+                    )
+                  ]),
+                )
+              ],
+            ),
           ),
         ));
   }
