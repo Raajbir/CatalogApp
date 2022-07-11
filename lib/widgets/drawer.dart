@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final imageUrl =
@@ -18,15 +16,15 @@ class MyDrawer extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 child: UserAccountsDrawerHeader(
                     margin: EdgeInsets.zero,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.deepPurple,
                     ),
-                    accountName: Text("Raajbir"),
-                    accountEmail: Text("raajbirbajpaie@gmail.com"),
+                    accountName: const Text("Raajbir"),
+                    accountEmail: const Text("raajbirbajpaie@gmail.com"),
                     currentAccountPicture: CircleAvatar(
                       backgroundImage: NetworkImage(imageUrl),
                     ))),
-            ListTile(
+            const ListTile(
               leading: Icon(
                 CupertinoIcons.home,
                 color: Colors.white,
@@ -37,7 +35,7 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ))),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(
                 CupertinoIcons.profile_circled,
                 color: Colors.white,
@@ -48,7 +46,7 @@ class MyDrawer extends StatelessWidget {
                     color: Colors.white,
                   ))),
             ),
-            ListTile(
+            const ListTile(
               leading: Icon(
                 CupertinoIcons.mail,
                 color: Colors.white,

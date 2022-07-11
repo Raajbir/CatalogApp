@@ -14,14 +14,10 @@ class _LoginPageState extends State<LoginPage> {
 
   moveToHome(BuildContext context) async {
     if (_formkey.currentState!.validate()) {
-      setState(() {
-        changeButton = true;
-      });
+      setState(() => changeButton = true);
       await Future.delayed(Duration(seconds: 1));
       await Navigator.pushNamed(context, MyRoutes.homeroute);
-      setState(() {
-        changeButton = false;
-      });
+      setState(() => changeButton = false);
     }
   }
 
@@ -68,11 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Username",
                         labelText: "Username",
                       ),
-                      onChanged: (value) {
-                        setState(() {
-                          name = value;
-                        });
-                      },
+                      onChanged: (value) => setState(() => name = value),
                     ),
                     TextFormField(
                       validator: (value) {
@@ -97,7 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius:
                           BorderRadius.circular(changeButton ? 20 : 8),
                       child: InkWell(
-                        splashColor: Color.fromARGB(255, 115, 76, 182),
+                        splashColor: Colors.purple,
                         onTap: () => moveToHome(context),
                         child: AnimatedContainer(
                           width: changeButton ? 50 : 150,
