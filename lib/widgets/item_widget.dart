@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:project/models/catalog.dart';
 
@@ -11,10 +13,10 @@ class ItemWidget extends StatelessWidget {
     return Card(
       elevation: 0.0,
       child: ListTile(
-        onTap: () {
-          print("${item.name} pressed");
-        },
-        leading: Image.network(item.image),
+        onTap: () => print("${item.name} pressed"),
+        leading: Image.network(
+          item.image,
+        ),
         title: Text(item.name),
         subtitle: Text(item.desc),
         trailing: Text(
